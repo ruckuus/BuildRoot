@@ -303,6 +303,7 @@ source "package/libiqrf/Config.in"
 source "package/libusb/Config.in"
 source "package/libusb-compat/Config.in"
 source "package/python-serial/Config.in"
+source "package/pcsc-lite/Config.in"
 endmenu
 
 if BROKEN
@@ -342,6 +343,7 @@ source "package/libnspr/Config.in"
 source "package/liboil/Config.in"
 source "package/libsigc/Config.in"
 source "package/startup-notification/Config.in"
+source "package/ccid/Config.in"
 endmenu
 
 menu "Text and terminal handling"

@@ -5,12 +5,30 @@ config BR2_TARGET_GENERIC_HOSTNAME
        default "buildroot"
        help
          Select system hostname to be stored in /etc/hostname.
+choice
+	prompt "System banner"
+	default BR2_TARGET_GENERIC_ISSUE
+
+config BR2_TARGET_GENERIC_ISSUE_STRING
+	bool "Using string input"
+
+config BR2_TARGET_CUSTOM_ISSUE
+	bool "Using custom plain text file"
+
+endchoice	
 
 config BR2_TARGET_GENERIC_ISSUE
        string "System banner"
+       depends on BR2_TARGET_GENERIC_ISSUE_STRING
        default "Welcome to Buildroot"
        help
          Select system banner (/etc/issue) to be displayed at login.
+
+config BR2_TARGET_CUSTOM_ISSUE_FILE
+       string "Welcome message text file"
+       depends on BR2_TARGET_CUSTOM_ISSUE
+       help
+         Select system banner (/etc/issue) from text file
 
 choice
 	prompt "/dev management"
